@@ -1,5 +1,6 @@
 #include <stdio.h> /*Biblioteka potrzebna do operacji wejścia i wyjścia*/
 #include <stdlib.h> /*Biblioteka potrzebna do utworzenia tablicy o rozmiarze zadeklarowanym przez użytkownika*/
+#include <math.h> /*Biblioteka potrzebna do funkcji pow()*/
 float SredniaArytmetyczna(float*liczby, int n) /*Funkcja licząca średnię arytmetyczną, jako argumenty przyjmuje wskaźnik do tablicy liczb i ilość tych liczb*/
 {
     float suma = 0.0; /*Deklaracja zmiennej, do której będą wpisywane kolejne sumy liczb z tablicy*/
@@ -16,7 +17,7 @@ float SredniaGeometryczna(float*liczby, int n) /*Funkcja licząca średnię geom
     {
         iloczyn *= liczby[i]; /*Do zmiennej iloczyn wpisujemy pomnożone do siebie kolejne liczby, aby uzyskać ich iloczyn*/
     }
-    return pow(iloczyn, 1.0 / n); /*Funkcja zwraca obliczoną ze wzoru średnię geometryczną, pow to funkcja, która potęguje, przyjmuje dwa argumenty, podstawę potęgi oraz wykładnik*/
+    return pow(iloczyn, (1.0 / n)); /*Funkcja zwraca obliczoną ze wzoru średnię geometryczną, pow to funkcja, która potęguje, przyjmuje dwa argumenty, podstawę potęgi oraz wykładnik*/
 }
 float SredniaHarmoniczna(float*liczby, int n) /*Funkcja licząca średnię harmoniczną, jako argumenty przyjmuje wskaźnik do tablicy liczb i ilość tych liczb*/
 {
@@ -42,4 +43,8 @@ int main(void) /*Funkcja zwraca 0 przy pomyślnym zakończeniu programu, nie prz
     float arytmetyczna = SredniaArytmetyczna(liczby,n); /*Przypisanie wyniku funkcji do zmiennej arytmetyczna*/
     float geometryczna = SredniaGeometryczna(liczby,n); /*Przypisanie wyniku funkcji do zmiennej geometryczna*/
     float harmoniczna = SredniaHarmoniczna(liczby,n); /*Przypisanie wyniku funkcji do zmiennej harmoniczna*/
+    printf("Srednia arytmetyczna: %f\n", arytmetyczna);
+    printf("Srednia geometryczna: %f\n", geometryczna);
+    printf("Srednia harmoniczna: %f\n", harmoniczna);
+    return 0;
 }
